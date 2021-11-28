@@ -2,7 +2,7 @@
  
  
 ```
-CREATE TABLE STADIUM (    /*           */
+CREATE TABLE STADIUM (    /* STADIUM이라는 테이블을 생성하다 */
 STADIUM_ID    CHAR(3) NOT NULL,  /* 고정길이의 스타디움아이디 낫널 */
 STADIUM_NAME  VARCHAR(40) NOT NULL, /* 가변길이의 스타디움네임 낫널 */
 HOMETEAM_ID   CHAR(3), /* 고정길이의 홈팀아이디 */
@@ -12,7 +12,7 @@ DDD           VARCHAR(3), /* 가변길이의 DDD */
 TEL           VARCHAR(10), /* 가변길이의 TEL */
 CONSTRAINT STADIUM_PK PRIMARY KEY (STADIUM_ID) /* 제약조건 스타디움의 기본키는 스타디움아이디 */
 );
-CREATE TABLE TEAM (
+CREATE TABLE TEAM ( /* TEAM이라는 테이블을 생성하다 */
 TEAM_ID     CHAR(3) NOT NULL, /* 고정길이의 팀아이디 낫널 */
 REGION_NAME VARCHAR(8) NOT NULL, /* 가변길이의 지역이름 낫널 */
 TEAM_NAME   VARCHAR(40) NOT NULL, /* 가변길이의 팀이름 낫널 */
@@ -30,7 +30,7 @@ OWNER       VARCHAR(10), /* 가변길이의 OWNER */
 CONSTRAINT TEAM_PK PRIMARY KEY (TEAM_ID), /* 제약조건 팀의 기본키는 팀아이디 */
 CONSTRAINT TEAM_FK FOREIGN KEY (STADIUM_ID) REFERENCES STADIUM(STADIUM_ID) /* 제약조건 스타디움의 기본키인 스타디움 아이디의 외래키인 팀의 스타디움 아이디 */
 );
-CREATE TABLE SCHEDULE (
+CREATE TABLE SCHEDULE ( /* SCHEDULE이라는 테이블을 생성하다 */
 STADIUM_ID   CHAR(3) NOT NULL, /* 고정길이의 스타디움아이디 낫널 */
 SCHE_DATE    CHAR(8) NOT NULL, /* 고정길이의 SCHE_DATE 낫널 */
 GUBUN        CHAR(1) NOT NULL, /* 고정길이의 GUBUN 낫널 */
@@ -42,7 +42,7 @@ CONSTRAINT SCHEDULE_PK PRIMARY KEY (STADIUM_ID, SCHE_DATE), /* 제약조건 SCHE
 CONSTRAINT SCHEDULE_FK FOREIGN KEY (STADIUM_ID) REFERENCES STADIUM(STADIUM_ID) /* 제약조건 스타디움의 기본키인 STADIUM_ID는 SCHEDULE의 외래키 */
 );
 
-CREATE TABLE  PLAYER (
+CREATE TABLE  PLAYER ( /* PLAYER라는 테이블을 생성하다 */
 PLAYER_ID     CHAR(7) NOT NULL, /* 고정길이의 PLAYER_ID는 낫널 */
 PLAYER_NAME   VARCHAR(20) NOT NULL, /* 가변길이의 PLAYER_NAME은 낫널 */
 TEAM_ID       CHAR(3) NOT NULL, /* 고정길이의 TEAM_ID는 낫널 */
